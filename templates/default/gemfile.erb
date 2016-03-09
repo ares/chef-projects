@@ -1,0 +1,7 @@
+<% @gems.each do |_, gem| -%>
+  <% if gem[:path].nil? -%>
+gem '<%= gem[:gem_name] %>'
+  <% else -%>
+gem '<%= gem[:gem_name] %>', :path => '<%= gem[:path] %>'
+  <% end -%>
+<% end -%>
