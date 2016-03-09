@@ -49,13 +49,17 @@ There are helpers that you can use globally in your recipes
     # let's say attribute [:projects][:root] is set to /install 
     project_path('foreman') # => "/install/foreman"  
 
-    project_attributes('smart-proxy', { :custom => 'option' }) # => returns a hash like this
-    {
-      :gem_name => "smart_proxy",
-      :name => "smart_proxy",
-      :path => "/install/smart_proxy",                         # uses project_path("smart_proxy")
-      :custom => 'option'
-    }
+    project_attributes('smart-proxy', { :custom => 'option' }) # => returns an array for 
+    constructing hash like this
+    [ 
+      'smart_proxy',                                             # converts dash to underscore
+      {
+        :gem_name => "smart-proxy",
+        :name => "smart-proxy",
+        :path => "/install/smart-proxy",                         # uses project_path("smart_proxy")
+        :custom => 'option'
+      }
+    ]
 
 ## Custom resources
 
