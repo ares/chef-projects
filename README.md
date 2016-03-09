@@ -4,6 +4,8 @@ projects Cookbook
 By default this cookbook only disables SELinux and setup directory structure for other projects_* cookbooks.
 It provides many useful helpers to install apps from git. It can also be used to install postgres DB.
 
+It also disables selinux, therefore you should not use it in production environment!
+
 Attributes
 ----------
 
@@ -16,6 +18,8 @@ but you can change it to whatever you prefer
 
     default[:projects][:root] = "/home/#{node[:user]}/Projekty/Zdrojaky/"
 
+note that node[:user] must be present for postgres configuration (this user will be granted
+access)
 
 Usage
 -----
