@@ -4,13 +4,15 @@ maintainer_email 'ar3s.cz@gmail.cz'
 license          'All rights reserved'
 description      'Installs/Configures my projects'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.4.2'
+version          '0.4.3'
 
 depends 'git'
 depends	'user', '>= 0.1.0'
 depends 'postgresql'
 depends 'database'
 depends 'selinux'
+depends 'ruby_build'
+depends 'rbenv'
 
 attribute 'projects',
           :display_name => 'Projects cookbook setup',
