@@ -1,7 +1,8 @@
-include_recipe "database::postgresql"
 include_recipe "postgresql"
 include_recipe "postgresql::client"
 include_recipe "postgresql::server"
+include_recipe "postgresql::ruby"
+include_recipe "database::postgresql"
 
 service 'postgresql' do
   action :nothing
@@ -19,3 +20,4 @@ if node.platform_family?('centos', 'rhel') && node[:platform_version].to_i > 6
     notifies :restart, 'service[postgresql]', :delayed
   end
 end
+
