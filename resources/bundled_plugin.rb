@@ -19,6 +19,7 @@ action :install do
     group node[:user]
     mode '0644'
     source 'gemfile.erb'
+    cookbook 'projects'
     variables :gems => { new_resource.id => new_resource.plugin }
   end
 end

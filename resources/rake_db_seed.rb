@@ -13,7 +13,7 @@ action :seed do
     env = new_resource.env.map { |key, value| "export #{key.upcase}=#{value};"}.join(' ')
   end
 
-  execute "su - #{new_resource.user} -c '#{env} cd #{new_resource.path}; rake db:seed > #{new_resource.path}/log/init_seed.log'" do
+  execute "su - #{new_resource.user} -c '#{env} cd #{new_resource.path}; bundle exec rake db:seed > #{new_resource.path}/log/init_seed.log'" do
     not_if { ::File.exists?("#{new_resource.path}/log/init_seed.log") }
   end
 end
